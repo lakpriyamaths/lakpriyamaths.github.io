@@ -1,1 +1,1 @@
-# lakpriyamaths.github.io
+# sankalpa
