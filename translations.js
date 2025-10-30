@@ -17,8 +17,8 @@ const translations = {
         studentTestimonial: 'Student Testimonial',
         email: 'Email',
         whatsapp: 'WhatsApp',
-        aboutText1: 'Sankalpa gained admission to the University of Peradeniya to study Engineering after achieving 3 A\'s in the G.C.E. A/L examination in 2016. During his undergraduate years, he began conducting individual and small group classes, which led him to discover a strong passion for teaching.',
-        aboutText2: 'After graduating with an Honours Degree in Engineering, Sankalpa transitioned into full-time tutoring, dedicating himself to helping students succeed through personalized education.',
+        aboutText1: 'I completed my school education at Dharmaraja College, Kandy with 3 A passes with an Island Rank qualifying me to the Faculty of Engineering, University of Peradeniya.',
+        aboutText2: 'After graduating with an Honours Degree in Engineering, I transitioned into full-time teaching conduting Combined Mathemtics tuition classes in major institutes around Kandy.',
         testimonialText: 'Sankalpa sir\'s teaching methods are exceptional. His ability to break down complex mathematical concepts into understandable parts helped me achieve an A grade in Combined Mathematics. The individual attention and regular practice sessions were invaluable to my success.',
         testimonialAuthor: '- A/L Student, 2024'
     },
@@ -40,8 +40,8 @@ const translations = {
         studentTestimonial: 'ශිෂ්‍ය අදහස්',
         email: 'විද්‍යුත් තැපෑල',
         whatsapp: 'වොට්ස්ඇප්',
-        aboutText1: 'සංකල්ප 2016 දී උසස් පෙළ විභාගයෙන් A ගුණාංග 3 ක් ලබා ගැනීමෙන් පසු පේරාදෙණිය විශ්වවිද්‍යාලයට ඉංජිනේරු අධ්‍යාපනය සඳහා ඇතුළත් විය. උපාධි අධ්‍යාපන කාලය තුළ, ඔහු පුද්ගලික සහ කුඩා කණ්ඩායම් පන්ති පැවැත්වීමට පටන් ගත් අතර, එමඟින් ඔහු උගැන්වීමේ උනන්දුව සොයා ගත්තේය.',
-        aboutText2: 'ඉංජිනේරු උපාධිය ගෞරව සමඟ ලබා ගැනීමෙන් පසු, සංකල්ප සම්පූර්ණ කාලීන උපදේශනයට යොමු වූ අතර, පුද්ගලීකෘත අධ්‍යාපනය හරහා සිසුන් සාර්ථක වීමට උපකාර කිරීමට කැප විය.',
+        aboutText1: 'මහනුවර ධර්මරාජ විද්‍යාලයෙන් අ.පො.ස උසස් පෙළ විභාගයට මුහුණ දී විෂයන් තුනටම A සාමාර්ථ ලබාගනිමින් පළමු දිස්ත්‍රික් කුසලතාවයක් සහිතව පේරාදෙණිය විශ්වවිද්‍යාලයීය ඉංජිනේරු පීඨයට තේරී පත්විය.',
+        aboutText2: 'තම ඉංජිනේරු උපාධිය BSc Engineering (Hons) සාර්ථකව අවසන්කර පූර්ණ කාලීන ටියුෂන් ගුරුවරයෙක් ලෙස මහනුවර ප්‍රමුඛ පෙළේ ආයතන කිහිපයක තම සංයුක්ත ගණිත පන්ති මෙහෙයවයි.',
         testimonialText: 'සංකල්ප සර් ගේ උගැන්වීමේ ක්‍රම අතිශයින්ම විශිෂ්ටයි. සංකීර්ණ ගණිත සංකල්ප සරල කොටස් වලට බෙදා දැක්වීමේ හැකියාව මගේ සංයුක්ත ගණිතයේ A ගුණාංගයක් ලබා ගැනීමට උපකාර විය. පුද්ගලික අවධානය සහ නිතිපතා පුහුණු සැසි මගේ සාර්ථකත්වයට අගය කළ නොහැකි විය.',
         testimonialAuthor: '- උසස් පෙළ සිසුවෙක්, 2024'
     }
