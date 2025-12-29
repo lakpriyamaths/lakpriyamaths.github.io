@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://lakpriyamaths.github.io/sitemap.xml
