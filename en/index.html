@@ -205,6 +205,16 @@
         .testimonial-control.next {
             right: 1rem;
         }
+        /* YouTube subscribe button styling */
+        .youtube-subscribe-wrapper {
+            background-color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            display: inline-block;
+        }
+        .youtube-subscribe-wrapper .g-ytsubscribe {
+            display: inline-block;
+        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -270,10 +280,12 @@
                     <p class="text-xl text-gray-600 mb-8" data-translate="title">GCE A/L Combined Mathematics Tutor | BSc Engineering (Peradeniya) with Honors</p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a href="#contact" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300" data-translate="joinClasses"></a>
-                        <div class="g-ytsubscribe"
-                             data-channelid="UCLJMI7hcLI6BiC5DeEDsLTA"
-                             data-layout="full"
-                             data-count="default"></div>
+                        <div class="youtube-subscribe-wrapper">
+                            <div class="g-ytsubscribe"
+                                 data-channelid="UCLJMI7hcLI6BiC5DeEDsLTA"
+                                 data-layout="full"
+                                 data-count="default"></div>
+                        </div>
                     </div>
                 </div>
             </div>
