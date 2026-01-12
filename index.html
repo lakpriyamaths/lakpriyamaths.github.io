@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,6 +121,12 @@
             border: 2px solid transparent;
             background-color: white;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-decoration: none;
+            padding: 0;
+        }
+        button.language-btn {
+            background: transparent;
         }
         .language-btn:hover {
             transform: scale(1.1);
@@ -214,16 +220,16 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">About</a>
-                    <a href="#classes" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">Classes</a>
-                    <a href="#results" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">Results</a>
-                    <a href="#news" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">News</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200">Join Classes</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="about"></a>
+                    <a href="#classes" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="classes"></a>
+                    <a href="#results" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="results"></a>
+                    <a href="#news" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="news"></a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="joinClasses"></a>
                     <div class="flex items-center space-x-2 ml-4 pl-4 border-l border-gray-200">
-                        <button onclick="changeLanguage('en')" class="language-btn active" title="English">
+                        <a href="en/" class="language-btn" title="English">
                             <img src="https://flagcdn.com/w40/us.png" alt="English">
-                        </button>
-                        <button onclick="changeLanguage('si')" class="language-btn" title="සිංහල">
+                        </a>
+                        <button onclick="changeLanguage('si')" class="language-btn active" title="සිංහල">
                             <img src="https://flagcdn.com/w40/lk.png" alt="සිංහල">
                         </button>
                     </div>
@@ -233,16 +239,16 @@
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
                 <div class="flex flex-col space-y-3">
-                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1">About</a>
-                    <a href="#classes" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1">Classes</a>
-                    <a href="#results" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1">Results</a>
-                    <a href="#news" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1">News</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1">Join Classes</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="about"></a>
+                    <a href="#classes" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="classes"></a>
+                    <a href="#results" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="results"></a>
+                    <a href="#news" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="news"></a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="joinClasses"></a>
                     <div class="flex items-center space-x-2 pt-2 mt-2 border-t border-gray-200">
-                        <button onclick="changeLanguage('en')" class="language-btn active" title="English">
+                        <a href="en/" class="language-btn" title="English">
                             <img src="https://flagcdn.com/w40/us.png" alt="English">
-                        </button>
-                        <button onclick="changeLanguage('si')" class="language-btn" title="සිංහල">
+                        </a>
+                        <button onclick="changeLanguage('si')" class="language-btn active" title="සිංහල">
                             <img src="https://flagcdn.com/w40/lk.png" alt="සිංහල">
                         </button>
                     </div>
@@ -257,11 +263,9 @@
         <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
             <div class="container mx-auto px-4 text-center">
                 <div class="text-center">
-                    <h1 class="text-4xl font-bold mb-2" data-translate="name">Lakpriya Sankalpa</h1>
-                    <p class="text-xl text-gray-600 mb-8" data-translate="title">GCE A/L Combined Mathematics Tutor | BSc Engineering (Peradeniya) with Honors</p>
-                    <a href="#contact" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
-                        Join Classes
-                    </a>
+                    <h1 class="text-4xl font-bold mb-2" data-translate="name">ලක්ප්‍රිය සංකල්ප</h1>
+                    <p class="text-xl text-gray-600 mb-8" data-translate="title">උසස් පෙළ සංයුක්ත ගණිත උපදේශක | ඉංජිනේරු උපාධිය (පේරාදෙණිය) ගෞරව සමඟ</p>
+                    <a href="#contact" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300" data-translate="joinClasses"></a>
                 </div>
             </div>
         </section>
@@ -280,7 +284,7 @@
         <!-- About Section -->
         <section id="about" class="py-16">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="aboutMe"></h2>
                 <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-md p-8">
                     <div class="flex flex-col md:flex-row items-center gap-8">
                         <div class="flex-1">
@@ -302,12 +306,8 @@
                             </div>
                         </div>
                         <div class="flex-1">
-                            <p class="text-gray-600 mb-4">
-                                Sankalpa gained admission to the University of Peradeniya to study Engineering after achieving 3 A's in the G.C.E. A/L examination in 2016. During his undergraduate years, he began conducting individual and small group classes, which led him to discover a strong passion for teaching.
-                            </p>
-                            <p class="text-gray-600">
-                                After graduating with an Honours Degree in Engineering, Sankalpa transitioned into full-time tutoring, dedicating himself to helping students succeed through personalized education.
-                            </p>
+                            <p class="text-gray-600 mb-4" data-translate="aboutText1"></p>
+                            <p class="text-gray-600" data-translate="aboutText2"></p>
                         </div>
                     </div>
                 </div>
@@ -317,22 +317,22 @@
         <!-- Types of Classes Section -->
         <section id="classes" class="py-16 bg-gray-100">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-8">Types of Classes</h2>
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="typesOfClasses"></h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <i class="fas fa-user-graduate text-3xl text-blue-500 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Individual Theory Classes</h3>
-                        <p class="text-gray-600">Personalized one-on-one sessions focusing on theoretical concepts and problem-solving techniques</p>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="individualTheory"></h3>
+                        <p class="text-gray-600" data-translate="individualTheoryDesc"></p>
                     </div>
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <i class="fas fa-book-reader text-3xl text-blue-500 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Individual Revision Classes</h3>
-                        <p class="text-gray-600">Customized revision sessions to strengthen understanding and prepare for examinations</p>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="individualRevision"></h3>
+                        <p class="text-gray-600" data-translate="individualRevisionDesc"></p>
                     </div>
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <i class="fas fa-users text-3xl text-blue-500 mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Group Theory Classes</h3>
-                        <p class="text-gray-600">Interactive group sessions for collaborative learning and peer discussion</p>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="groupTheory"></h3>
+                        <p class="text-gray-600" data-translate="groupTheoryDesc"></p>
                     </div>
                 </div>
             </div>
@@ -341,46 +341,40 @@
         <!-- Previous Years Section -->
         <section id="results" class="py-16 bg-white">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-8">Previous Years</h2>
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="previousYears"></h2>
                 <div class="max-w-6xl mx-auto">
                     <div class="flex flex-col md:flex-row gap-8">
                         <!-- Pie Chart -->
                         <div class="flex-1 bg-white rounded-lg shadow-md p-6">
-                            <h3 class="text-xl font-semibold mb-4 text-center">2024 Results</h3>
+                            <h3 class="text-xl font-semibold mb-4 text-center" data-translate="results2024"></h3>
                             <div class="relative h-64">
                                 <canvas id="resultsChart"></canvas>
                             </div>
                         </div>
                         <!-- Testimonial Slideshow -->
                         <div class="flex-1 bg-white rounded-lg shadow-md p-6">
-                            <h3 class="text-xl font-semibold mb-4 text-center">Student Testimonials</h3>
+                            <h3 class="text-xl font-semibold mb-4 text-center" data-translate="studentTestimonial"></h3>
                             <div class="testimonial-slideshow relative">
                                 <div class="testimonial-slideshow-inner">
                                     <div class="testimonial-slide">
                                         <div class="flex flex-col items-center">
                                             <img src="imgs/students/01-rahmi.jpeg" alt="Mohomed Rahmi" class="w-32 h-32 rounded-full object-cover mb-4 shadow-lg">
-                                            <p class="text-gray-600 italic mb-4 text-center">
-                                                "Learning Combined Maths with you was a great experience. Your clear explanations and patient guidance made even the hardest topics easier to understand. I'm truly grateful for the support and encouragement you gave me."
-                                            </p>
-                                            <p class="text-gray-800 font-semibold">Mohomed Rahmi</p>
+                                            <p class="text-gray-600 italic mb-4 text-center" data-translate="testimonial1"></p>
+                                            <p class="text-gray-800 font-semibold" data-translate="testimonial1Author"></p>
                                         </div>
                                     </div>
                                     <div class="testimonial-slide">
                                         <div class="flex flex-col items-center">
                                             <img src="imgs/students/02-thejan.jpeg" alt="Thejan Buwaneka" class="w-32 h-32 rounded-full object-cover mb-4 shadow-lg">
-                                            <p class="text-gray-600 italic mb-4 text-center">
-                                                "Dear Sir, Your teaching made Combined Maths not just easier, but actually enjoyable. Sir always shared simple methods that helped us solve tough problems, and sir even explained the history behind the subject, which was really interesting. We never felt like just students—sir treated us like friends, and Sir's dedication and hard work truly inspired us. Thank you for the everything Sir."
-                                            </p>
-                                            <p class="text-gray-800 font-semibold">Thejan Buwaneka</p>
+                                            <p class="text-gray-600 italic mb-4 text-center" data-translate="testimonial2"></p>
+                                            <p class="text-gray-800 font-semibold" data-translate="testimonial2Author"></p>
                                         </div>
                                     </div>
                                     <div class="testimonial-slide">
                                         <div class="flex flex-col items-center">
                                             <img src="imgs/students/03-thasira.jpeg" alt="Thasira Sankaja Karunarathna" class="w-32 h-32 rounded-full object-cover mb-4 shadow-lg">
-                                            <p class="text-gray-600 italic mb-4 text-center">
-                                                "Thank you sir for everything. Your classes made complex concepts feel simple and clear. The way you explained each topic step by step really boosted my confidence in Combined Maths. It was one of the best learning experiences I've ever had."
-                                            </p>
-                                            <p class="text-gray-800 font-semibold">Thasira Sankaja Karunarathna</p>
+                                            <p class="text-gray-600 italic mb-4 text-center" data-translate="testimonial3"></p>
+                                            <p class="text-gray-800 font-semibold" data-translate="testimonial3Author"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -400,7 +394,7 @@
         <!-- News Carousel Section -->
         <section id="news" class="py-16 bg-gray-100">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-8">Latest News & Updates</h2>
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="latestNews"></h2>
                 <div class="max-w-4xl mx-auto">
                     <div class="carousel bg-white rounded-lg shadow-md overflow-hidden">
                         <div class="carousel-inner">
@@ -446,41 +440,41 @@
         <!-- Contact Section -->
         <section id="contact" class="py-16">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-8">Join Classes</h2>
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="joinClasses"></h2>
                 <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
                     <div class="flex flex-col space-y-6">
                         <a href="mailto:lakpriyasankalpaeng@gmail.com" class="flex items-center text-gray-600 hover:text-blue-500">
                             <i class="fas fa-envelope text-2xl mr-4"></i>
                             <div>
-                                <p class="font-semibold">Email</p>
+                                <p class="font-semibold" data-translate="email"></p>
                                 <p>lakpriyasankalpaeng@gmail.com</p>
                             </div>
                         </a>
                         <a href="https://wa.me/94715607198" class="flex items-center text-gray-600 hover:text-green-500">
                             <i class="fab fa-whatsapp text-2xl mr-4"></i>
                             <div>
-                                <p class="font-semibold">WhatsApp</p>
+                                <p class="font-semibold" data-translate="whatsapp"></p>
                                 <p>+94 71 560 7198</p>
                             </div>
                         </a>
                         <a href="https://www.facebook.com/lakpriya.sankalpa" class="flex items-center text-gray-600 hover:text-blue-600">
                             <i class="fab fa-facebook text-2xl mr-4"></i>
                             <div>
-                                <p class="font-semibold">Facebook</p>
+                                <p class="font-semibold" data-translate="facebook"></p>
                                 <p>Lakpriya Sankalpa</p>
                             </div>
                         </a>
                         <a href="https://www.tiktok.com/@lakpriya_sankalpa" class="flex items-center text-gray-600 hover:text-gray-900">
                             <i class="fab fa-tiktok text-2xl mr-4"></i>
                             <div>
-                                <p class="font-semibold">TikTok</p>
+                                <p class="font-semibold" data-translate="tiktok"></p>
                                 <p>lakpriya_sankalpa</p>
                             </div>
                         </a>
                         <a href="https://www.youtube.com/@lakpriyasankalpa33" class="flex items-center text-gray-600 hover:text-red-600">
                             <i class="fab fa-youtube text-2xl mr-4"></i>
                             <div>
-                                <p class="font-semibold">YouTube</p>
+                                <p class="font-semibold" data-translate="youtube"></p>
                                 <p>@lakpriyasankalpa33</p>
                             </div>
                         </a>
@@ -494,7 +488,7 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; Last updated October 15, 2025 - Lakpriya Sankalpa. All rights reserved.</p>
+            <p>&copy; <span data-translate="footerText"></span></p>
         </div>
     </footer>
     <script>
@@ -604,43 +598,19 @@
         }
 
         function updateLanguage() {
-            // Update name and title
-            document.querySelector('[data-translate="name"]').textContent = translations[currentLanguage].name;
-            document.querySelector('[data-translate="title"]').textContent = translations[currentLanguage].title;
-
-            // Update navigation
-            document.querySelector('a[href="#about"]').textContent = translations[currentLanguage].about;
-            document.querySelector('a[href="#classes"]').textContent = translations[currentLanguage].classes;
-            document.querySelector('a[href="#results"]').textContent = translations[currentLanguage].results;
-            document.querySelector('a[href="#news"]').textContent = translations[currentLanguage].news;
-            document.querySelector('a[href="#contact"]').textContent = translations[currentLanguage].joinClasses;
-
-            // Update section headings
-            document.querySelector('#about h2').textContent = translations[currentLanguage].aboutMe;
-            document.querySelector('#classes h2').textContent = translations[currentLanguage].typesOfClasses;
-            document.querySelector('#results h2').textContent = translations[currentLanguage].previousYears;
-            document.querySelector('#news h2').textContent = translations[currentLanguage].latestNews;
-
-            // Update about text
-            const aboutParagraphs = document.querySelectorAll('#about .text-gray-600');
-            aboutParagraphs[0].textContent = translations[currentLanguage].aboutText1;
-            aboutParagraphs[1].textContent = translations[currentLanguage].aboutText2;
-
-            // Update class types
-            const classTypes = document.querySelectorAll('#classes .text-xl');
-            classTypes[0].textContent = translations[currentLanguage].individualTheory;
-            classTypes[1].textContent = translations[currentLanguage].individualRevision;
-            classTypes[2].textContent = translations[currentLanguage].groupTheory;
-
-            // Update contact section
-            document.querySelector('#contact h2').textContent = translations[currentLanguage].joinClasses;
-            document.querySelector('.fa-envelope').nextElementSibling.querySelector('p:first-child').textContent = translations[currentLanguage].email;
-            document.querySelector('.fa-whatsapp').nextElementSibling.querySelector('p:first-child').textContent = translations[currentLanguage].whatsapp;
-
-            // Update testimonial
-            const testimonialSection = document.querySelector('#results .text-gray-600.italic');
-            testimonialSection.textContent = translations[currentLanguage].testimonialText;
-            testimonialSection.nextElementSibling.textContent = translations[currentLanguage].testimonialAuthor;
+            // Check if translations are loaded
+            if (typeof translations === 'undefined' || !translations[currentLanguage]) {
+                console.warn('Translations not loaded yet');
+                return;
+            }
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
         }
 
         // Navigation highlighting
@@ -746,13 +716,35 @@
         updateTestimonialSlideshow();
 
         // Initialize language on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        function initializeLanguage() {
+            // Check if translations are loaded, retry if not
+            if (typeof translations === 'undefined') {
+                setTimeout(initializeLanguage, 50);
+                return;
+            }
+            
             // Set Sinhala button as active
-            document.querySelector('.language-btn[onclick="changeLanguage(\'si\')"]').classList.add('active');
-            document.querySelector('.language-btn[onclick="changeLanguage(\'en\')"]').classList.remove('active');
+            const siButton = document.querySelector('.language-btn[onclick="changeLanguage(\'si\')"]');
+            const enButton = document.querySelector('.language-btn[onclick="changeLanguage(\'en\')"]');
+            if (siButton) siButton.classList.add('active');
+            if (enButton) enButton.classList.remove('active');
             
             // Update all text to Sinhala
             updateLanguage();
+        }
+
+        // Run immediately if DOM is ready, otherwise wait for DOMContentLoaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLanguage);
+        } else {
+            initializeLanguage();
+        }
+        
+        // Also try on window load as fallback
+        window.addEventListener('load', function() {
+            if (typeof translations !== 'undefined') {
+                updateLanguage();
+            }
         });
     </script>
 </body>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakpriya Sankalpa</title>
+    <link rel="icon" type="image/x-icon" href="https://www.ce.pdn.ac.lk/assets/images/favicon.ico">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1ZMFB7LX1G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-1ZMFB7LX1G');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="../translations.js"></script>
+    <style>
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            flex: 0 0 100%;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 600px;
+            object-fit: contain;
+            background-color: #f3f4f6;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-control.prev {
+            left: 1rem;
+        }
+        .carousel-control.next {
+            right: 1rem;
+        }
+        .profile-slideshow {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .profile-slideshow-inner {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        .profile-slide {
+            flex: 0 0 100%;
+        }
+        .profile-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
+        /* Dark mode styles */
+        .dark {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .dark .bg-white {
+            background-color: #2d2d2d;
+        }
+        .dark .text-gray-600 {
+            color: #a0aec0;
+        }
+        .dark .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark .bg-gray-100 {
+            background-color: #2d2d2d;
+        }
+        .dark .bg-gray-50 {
+            background-color: #1a1a1a;
+        }
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+        .dark .hover\:text-gray-900:hover {
+            color: #ffffff;
+        }
+        .dark .hover\:bg-gray-100:hover {
+            background-color: #3d3d3d;
+        }
+        .dark .bg-gray-800 {
+            background-color: #000000;
+        }
+        /* Language selector styles */
+        .language-btn {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 2px solid transparent;
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-decoration: none;
+            padding: 0;
+        }
+        button.language-btn {
+            background: transparent;
+        }
+        .language-btn:hover {
+            transform: scale(1.1);
+        }
+        .language-btn.active {
+            border-color: #3B82F6;
+        }
+        .language-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Active navigation link styles */
+        .nav-link.active {
+            color: #3B82F6;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3B82F6;
+            border-radius: 2px;
+        }
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        #mobile-menu.show {
+            display: block;
+        }
+        /* Testimonial slideshow styles */
+        .testimonial-slideshow {
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+        }
+        
+        .testimonial-slideshow-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 1rem;
+        }
+        
+        .testimonial-control {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .testimonial-control:hover {
+            background-color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .testimonial-control.prev {
+            left: 1rem;
+        }
+        
+        .testimonial-control.next {
+            right: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-md z-40">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-xl font-bold text-gray-800">Lakpriya Sankalpa</h1>
+                
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-gray-600 text-xl"></i>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="about"></a>
+                    <a href="#classes" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="classes"></a>
+                    <a href="#results" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="results"></a>
+                    <a href="#news" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="news"></a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200" data-translate="joinClasses"></a>
+                    <div class="flex items-center space-x-2 ml-4 pl-4 border-l border-gray-200">
+                        <button onclick="changeLanguage('en')" class="language-btn active" title="English">
+                            <img src="https://flagcdn.com/w40/us.png" alt="English">
+                        </button>
+                        <a href="../" class="language-btn" title="සිංහල">
+                            <img src="https://flagcdn.com/w40/lk.png" alt="සිංහල">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="about"></a>
+                    <a href="#classes" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="classes"></a>
+                    <a href="#results" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="results"></a>
+                    <a href="#news" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="news"></a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1" data-translate="joinClasses"></a>
+                    <div class="flex items-center space-x-2 pt-2 mt-2 border-t border-gray-200">
+                        <button onclick="changeLanguage('en')" class="language-btn active" title="English">
+                            <img src="https://flagcdn.com/w40/us.png" alt="English">
+                        </button>
+                        <a href="../" class="language-btn" title="සිංහල">
+                            <img src="https://flagcdn.com/w40/lk.png" alt="සිංහල">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Add padding to account for fixed navbar -->
+    <div class="pt-16">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold mb-2" data-translate="name">Lakpriya Sankalpa</h1>
+                    <p class="text-xl text-gray-600 mb-8" data-translate="title">GCE A/L Combined Mathematics Tutor | BSc Engineering (Peradeniya) with Honors</p>
+                    <a href="#contact" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300" data-translate="joinClasses"></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                        <iframe class="absolute top-0 left-0 w-full h-full rounded-lg shadow-md" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLQaVI4J3UMIyMcOWIaGLb5AOyKjcjCAtg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="aboutMe"></h2>
+                <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-md p-8">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="flex-1">
+                            <div class="profile-slideshow">
+                                <div class="profile-slideshow-inner">
+                                    <div class="profile-slide">
+                                        <img src="../imgs/sankalpa.jpg" alt="Lakpriya Sankalpa">
+                                    </div>
+                                    <div class="profile-slide">
+                                        <img src="../imgs/sankalpa-board.jpg" alt="Lakpriya Sankalpa">
+                                    </div>
+                                    <div class="profile-slide">
+                                        <img src="../imgs/sankalpa-convocation.jpg" alt="Convocation">
+                                    </div>
+                                    <div class="profile-slide">
+                                        <img src="../imgs/sankalpa-graduation.jpg" alt="Graduation">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-gray-600 mb-4" data-translate="aboutText1"></p>
+                            <p class="text-gray-600" data-translate="aboutText2"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Types of Classes Section -->
+        <section id="classes" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="typesOfClasses"></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <i class="fas fa-user-graduate text-3xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="individualTheory"></h3>
+                        <p class="text-gray-600" data-translate="individualTheoryDesc"></p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <i class="fas fa-book-reader text-3xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="individualRevision"></h3>
+                        <p class="text-gray-600" data-translate="individualRevisionDesc"></p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <i class="fas fa-users text-3xl text-blue-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2" data-translate="groupTheory"></h3>
+                        <p class="text-gray-600" data-translate="groupTheoryDesc"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Previous Years Section -->
+        <section id="results" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="previousYears"></h2>
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <!-- Pie Chart -->
+                        <div class="flex-1 bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-center" data-translate="results2024"></h3>
+                            <div class="relative h-64">
+                                <canvas id="resultsChart"></canvas>
+                            </div>
+                        </div>
+                        <!-- Testimonial Slideshow -->
+                        <div class="flex-1 bg-white rounded-lg shadow-md p-6">
+                            <h3 class="text-xl font-semibold mb-4 text-center" data-translate="studentTestimonial"></h3>
+                            <div class="testimonial-slideshow relative">
+                                <div class="testimonial-slideshow-inner">
+                                    <div class="testimonial-slide">
+                                        <div class="flex flex-col items-center">
+                                            <img src="../imgs/students/01-rahmi.jpeg" alt="Mohomed Rahmi" class="w-32 h-32 rounded-full object-cover mb-4 shadow-lg">
+                                            <p class="text-gray-600 italic mb-4 text-center" data-translate="testimonial1"></p>
+                                            <p class="text-gray-800 font-semibold" data-translate="testimonial1Author"></p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-slide">
+                                        <div class="flex flex-col items-center">
+                                            <img src="../imgs/students/02-thejan.jpeg" alt="Thejan Buwaneka" class="w-32 h-32 rounded-full object-cover mb-4 shadow-lg">
+                                            <p class="text-gray-600 italic mb-4 text-center" data-translate="testimonial2"></p>
+                                            <p class="text-gray-800 font-semibold" data-translate="testimonial2Author"></p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-slide">
+                                        <div class="flex flex-col items-center">
+                                            <img src="../imgs/students/03-thasira.jpeg" alt="Thasira Sankaja Karunarathna" class="w-32 h-32 rounded-full object-cover mb-4 shadow-lg">
+                                            <p class="text-gray-600 italic mb-4 text-center" data-translate="testimonial3"></p>
+                                            <p class="text-gray-800 font-semibold" data-translate="testimonial3Author"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="testimonial-control prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="testimonial-control next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-md">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Carousel Section -->
+        <section id="news" class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="latestNews"></h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="carousel bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/09.jpg" alt="2026 Theory මහනුවර තිනෙත් ආයතනයේදි අවකලනය නොවැ 02 ඇරඹේ">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/08.jpg" alt="News 8">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/07.jpg" alt="News 7">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/06.jpg" alt="News 6">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/05.jpg" alt="News 5">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/04.jpg" alt="News 4">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/03.jpg" alt="News 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/02.jpg" alt="News 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imgs/slideshow/01.jpg" alt="News 1">
+                            </div>
+                        </div>
+                        <button class="carousel-control prev" onclick="prevSlide()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-control next" onclick="nextSlide()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-8" data-translate="joinClasses"></h2>
+                <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
+                    <div class="flex flex-col space-y-6">
+                        <a href="mailto:lakpriyasankalpaeng@gmail.com" class="flex items-center text-gray-600 hover:text-blue-500">
+                            <i class="fas fa-envelope text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold" data-translate="email"></p>
+                                <p>lakpriyasankalpaeng@gmail.com</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/94715607198" class="flex items-center text-gray-600 hover:text-green-500">
+                            <i class="fab fa-whatsapp text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold" data-translate="whatsapp"></p>
+                                <p>+94 71 560 7198</p>
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/lakpriya.sankalpa" class="flex items-center text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-facebook text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold" data-translate="facebook"></p>
+                                <p>Lakpriya Sankalpa</p>
+                            </div>
+                        </a>
+                        <a href="https://www.tiktok.com/@lakpriya_sankalpa" class="flex items-center text-gray-600 hover:text-gray-900">
+                            <i class="fab fa-tiktok text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold" data-translate="tiktok"></p>
+                                <p>lakpriya_sankalpa</p>
+                            </div>
+                        </a>
+                        <a href="https://www.youtube.com/@lakpriyasankalpa33" class="flex items-center text-gray-600 hover:text-red-600">
+                            <i class="fab fa-youtube text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold" data-translate="youtube"></p>
+                                <p>@lakpriyasankalpa33</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; <span data-translate="footerText"></span></p>
+        </div>
+    </footer>
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            const carousel = document.querySelector('.carousel-inner');
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Initialize carousel
+        updateCarousel();
+
+        // Register the datalabels plugin
+        Chart.register(ChartDataLabels);
+        
+        // Initialize the pie chart
+        const ctx = document.getElementById('resultsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['A', 'B', 'C', 'S'],
+                datasets: [{
+                    data: [4, 1, 3, 2],
+                    backgroundColor: [
+                        '#3B82F6', // Blue
+                        '#10B981', // Green
+                        '#F59E0B', // Yellow
+                        '#EF4444'  // Red
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    },
+                    datalabels: {
+                        color: '#fff',
+                        font: {
+                            weight: 'bold',
+                            size: 14
+                        },
+                        formatter: function(value, context) {
+                            return context.chart.data.labels[context.dataIndex] + '\n' + value;
+                        }
+                    }
+                }
+            }
+        });
+
+        // Profile slideshow functionality
+        let currentProfileSlide = 0;
+        const profileSlides = document.querySelectorAll('.profile-slide');
+        const totalProfileSlides = profileSlides.length;
+
+        function updateProfileSlideshow() {
+            const slideshow = document.querySelector('.profile-slideshow-inner');
+            slideshow.style.transform = `translateX(-${currentProfileSlide * 100}%)`;
+        }
+
+        function nextProfileSlide() {
+            currentProfileSlide = (currentProfileSlide + 1) % totalProfileSlides;
+            updateProfileSlideshow();
+        }
+
+        // Auto-advance profile slides every 4 seconds
+        setInterval(nextProfileSlide, 4000);
+
+        // Initialize profile slideshow
+        updateProfileSlideshow();
+
+        // Language functionality
+        let currentLanguage = 'en';
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            updateLanguage();
+            
+            // Update active button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.language-btn[onclick="changeLanguage('${lang}')"]`).classList.add('active');
+        }
+
+        function updateLanguage() {
+            // Check if translations are loaded
+            if (typeof translations === 'undefined' || !translations[currentLanguage]) {
+                console.warn('Translations not loaded yet');
+                return;
+            }
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+        }
+
+        // Navigation highlighting
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const navLink = document.querySelector(`.nav-link[href="#${section.id}"]`);
+                
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    navLink.classList.add('active');
+                }
+            });
+        }
+
+        // Update active link on scroll
+        window.addEventListener('scroll', updateActiveNavLink);
+        
+        // Update active link on click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Initial call to set active link
+        updateActiveNavLink();
+
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.querySelector('.fa-bars, .fa-times');
+            
+            mobileMenu.classList.toggle('hidden');
+            
+            // Toggle between hamburger and close icon
+            if (mobileMenu.classList.contains('hidden')) {
+                menuButton.classList.remove('fa-times');
+                menuButton.classList.add('fa-bars');
+            } else {
+                menuButton.classList.remove('fa-bars');
+                menuButton.classList.add('fa-times');
+            }
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuButton = document.querySelector('.fa-bars, .fa-times');
+                
+                mobileMenu.classList.add('hidden');
+                menuButton.classList.remove('fa-times');
+                menuButton.classList.add('fa-bars');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.querySelector('.fa-bars, .fa-times');
+            const menuButtonContainer = document.querySelector('button[onclick="toggleMobileMenu()"]');
+            
+            if (!mobileMenu.contains(e.target) && !menuButtonContainer.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                menuButton.classList.remove('fa-times');
+                menuButton.classList.add('fa-bars');
+            }
+        });
+
+        // Testimonial slideshow functionality
+        let currentTestimonialSlide = 0;
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const totalTestimonialSlides = testimonialSlides.length;
+
+        function updateTestimonialSlideshow() {
+            const slideshow = document.querySelector('.testimonial-slideshow-inner');
+            slideshow.style.transform = `translateX(-${currentTestimonialSlide * 100}%)`;
+        }
+
+        function nextTestimonialSlide() {
+            currentTestimonialSlide = (currentTestimonialSlide + 1) % totalTestimonialSlides;
+            updateTestimonialSlideshow();
+        }
+
+        function prevTestimonialSlide() {
+            currentTestimonialSlide = (currentTestimonialSlide - 1 + totalTestimonialSlides) % totalTestimonialSlides;
+            updateTestimonialSlideshow();
+        }
+
+        // Add click handlers for testimonial controls
+        document.querySelector('.testimonial-control.next').addEventListener('click', nextTestimonialSlide);
+        document.querySelector('.testimonial-control.prev').addEventListener('click', prevTestimonialSlide);
+
+        // Auto-advance testimonial slides every 6 seconds
+        setInterval(nextTestimonialSlide, 6000);
+
+        // Initialize testimonial slideshow
+        updateTestimonialSlideshow();
+
+        // Initialize language on page load
+        function initializeLanguage() {
+            // Check if translations are loaded, retry if not
+            if (typeof translations === 'undefined') {
+                setTimeout(initializeLanguage, 50);
+                return;
+            }
+            
+            // Set English button as active
+            const enButton = document.querySelector('.language-btn[onclick="changeLanguage(\'en\')"]');
+            const siButton = document.querySelector('.language-btn[onclick="changeLanguage(\'si\')"]');
+            if (enButton) enButton.classList.add('active');
+            if (siButton) siButton.classList.remove('active');
+            
+            // Update all text to English
+            updateLanguage();
+        }
+
+        // Run immediately if DOM is ready, otherwise wait for DOMContentLoaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLanguage);
+        } else {
+            initializeLanguage();
+        }
+        
+        // Also try on window load as fallback
+        window.addEventListener('load', function() {
+            if (typeof translations !== 'undefined') {
+                updateLanguage();
+            }
+        });
+    </script>
+</body>
+</html>
